@@ -124,7 +124,7 @@
     .skills-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;}
     .skill { background: var(--accent); border-radius: 5px; padding: 6px 14px; box-shadow: 0 2px 8px #eee; margin-bottom: 7px; font-weight: 500;}
     .skill-bar {
-      position: relative; height: 8px; background: #ececec; border-radius: 6px; margin:5px 0; width: 84px;
+      position: relative; height: 8px; background: #ececec; border-radius: 6px; margin: 5px 0; width: 84px;
     }
     .progress {height:100%; border-radius:6px; background:var(--primary);}
     .project-cards { display: flex; flex-direction: column; gap: 19px;}
@@ -139,7 +139,7 @@
     .exp-item, .edu-item, .cert-item { margin-bottom: 19px;}
     .exp-title { font-weight: 600;}
     .exp-date, .edu-date, .cert-date { font-size: .97em; color: #888;}
-    .lang-list, .extra-list { list-style:none; padding-left:0; margin-bottom:8px;}
+    .lang-list, .extra-list { list-style: none; padding-left: 0; margin-bottom: 8px;}
     .lang-list li, .extra-list li { font-size: 1.02em; margin-bottom: 4px; font-weight: 500;}
     .about.section {font-size: 1.08em; margin: 12px 0 0 0; font-weight: 400;}
     /* Theme Picker styles */
@@ -165,25 +165,69 @@
     }
     .color-choice.selected {border: 3px solid var(--primary);}
     @media (max-width: 800px) {
-      .sidebar {position:relative; width:100vw; border-radius:0;}
-      .container {margin-left:0;border-radius:0;}
-      header, .main-content {padding:16px;}
-      .main-content {flex-direction: column; gap:16px;}
-      .download-btn { position:static; margin: 0 0 12px 0; display:block;}
-      .theme-picker { position: static; margin: 16px 0 0 16px;}
+      .sidebar {
+        position: relative;
+        width: 100vw;
+        border-radius: 0;
+      }
+      .container {
+        margin-left: 0;
+        border-radius: 0;
+      }
+      header, .main-content {
+        padding: 16px;
+      }
+      .main-content {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .download-btn {
+        position: static;
+        margin: 0 0 12px 0;
+        display: block;
+      }
+      .theme-picker {
+        position: static;
+        margin: 16px 0 0 16px;
+      }
     }
     body.dark-mode {
-      background: var(--dark-bg); color: #eee;
+      background: var(--dark-bg);
+      color: #eee;
     }
-    body.dark-mode .container {background: #232642; box-shadow: 0 8px 48px rgba(18,24,36,0.20);}
-    body.dark-mode .sidebar {background: var(--primary-dark);}
-    body.dark-mode .section h3, body.dark-mode header h1 {color: var(--primary-dark);}
-    body.dark-mode .project-card {background: #2d3551; box-shadow: 0 3px 13px #253048;}
-    body.dark-mode .skill {background: #232642; box-shadow: 0 1px 8px #1c2235;}
-    body.dark-mode .download-btn {background: var(--primary-dark);}
-    body.dark-mode .download-btn:hover {background: #935faf;}
-    body.dark-mode .theme-picker {background: #232642; color: #eee; border: 1px solid #444;}
-    body.dark-mode .color-choice {border: 2px solid #555;}
+    body.dark-mode .container {
+      background: #232642;
+      box-shadow: 0 8px 48px rgba(18, 24, 36, 0.2);
+    }
+    body.dark-mode .sidebar {
+      background: var(--primary-dark);
+    }
+    body.dark-mode .section h3,
+    body.dark-mode header h1 {
+      color: var(--primary-dark);
+    }
+    body.dark-mode .project-card {
+      background: #2d3551;
+      box-shadow: 0 3px 13px #253048;
+    }
+    body.dark-mode .skill {
+      background: #232642;
+      box-shadow: 0 1px 8px #1c2235;
+    }
+    body.dark-mode .download-btn {
+      background: var(--primary-dark);
+    }
+    body.dark-mode .download-btn:hover {
+      background: #7d469f;
+    }
+    body.dark-mode .theme-picker {
+      background: #232642;
+      color: #eee;
+      border: 1px solid #444;
+    }
+    body.dark-mode .color-choice {
+      border: 2px solid #555;
+    }
   </style>
 </head>
 <body>
@@ -222,72 +266,8 @@
       </div>
     </header>
     <div class="main-content">
+      <!-- Left Column: Experience, Projects, Certifications -->
       <div class="left-col">
-        <div class="section" id="skills">
-          <h3>Skills</h3>
-          <div class="skills-list">
-            <div class="skill">C#<div class="skill-bar"><div class="progress" style="width:96%"></div></div></div>
-            <div class="skill">React TS<div class="skill-bar"><div class="progress" style="width:92%"></div></div></div>
-            <div class="skill">SQL<div class="skill-bar"><div class="progress" style="width:88%"></div></div></div>
-            <div class="skill">Web APIs<div class="skill-bar"><div class="progress" style="width:87%"></div></div></div>
-            <div class="skill">Microsoft Azure<div class="skill-bar"><div class="progress" style="width:83%"></div></div></div>
-            <div class="skill">Blazor<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
-            <div class="skill">Entity Framework Core<div class="skill-bar"><div class="progress" style="width:81%"></div></div></div>
-            <div class="skill">Dapper<div class="skill-bar"><div class="progress" style="width:77%"></div></div></div>
-            <div class="skill">MVC Core<div class="skill-bar"><div class="progress" style="width:85%"></div></div></div>
-            <div class="skill">PostgreSQL<div class="skill-bar"><div class="progress" style="width:70%"></div></div></div>
-            <div class="skill">UI/UX Design<div class="skill-bar"><div class="progress" style="width:78%"></div></div></div>
-            <div class="skill">Testing/Debugging<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
-            <div class="skill">Kendo UI/Telerik<div class="skill-bar"><div class="progress" style="width:72%"></div></div></div>
-            <div class="skill">Javascript<div class="skill-bar"><div class="progress" style="width:86%"></div></div></div>
-          </div>
-        </div>
-        <div class="section" id="education">
-          <h3>Education</h3>
-          <div class="edu-item">
-            <b>KIPM College of Tech & Engg</b> <span class="edu-date">Aug 2020 – Jul 2023</span><br />
-            Bachelor of Technology (CSE), 85%
-          </div>
-          <div class="edu-item">
-            <b>M.P. Polytechnic Gorakhnath</b> <span class="edu-date">Jul 2015 – Jun 2018</span><br />
-            Diploma, 81%
-          </div>
-        </div>
-        <div class="section" id="languages">
-          <h3>Languages</h3>
-          <ul class="lang-list">
-            <li>English</li>
-            <li>Hindi</li>
-          </ul>
-        </div>
-        <div class="section" id="extra">
-          <h3>Extra Curricular Activities</h3>
-          <ul class="extra-list">
-            <li>Hackerrank mock tests (MS SQL)</li>
-            <li>Chess – 1st prize</li>
-            <li>Kabaddi – college level</li>
-            <li>General aptitude quiz – 3rd prize</li>
-            <li>Debate competition</li>
-            <li>Reading: Books, Novels, Short Stories</li>
-          </ul>
-        </div>
-        <div class="section" id="certs">
-          <h3>Certifications</h3>
-          <div class="cert-item">
-            <b>Diploma In C#</b> <span class="cert-date">Alison – Jan 2022</span>
-          </div>
-          <div class="cert-item">
-            <b>Mastering Computer & Internet Skills</b> <span class="cert-date">Gyaan.Com – Jul 2022</span>
-          </div>
-          <div class="cert-item">
-            <b>HTML</b> <span class="cert-date">Great Learning – Feb 2022</span>
-          </div>
-          <div class="cert-item">
-            <b>Google Analytics</b> <span class="cert-date">Academy – Apr 2022</span>
-          </div>
-        </div>
-      </div>
-      <div class="right-col">
         <div class="section" id="experience">
           <h3>Experience (3+ Years)</h3>
           <div class="exp-item">
@@ -362,7 +342,72 @@
             </div>
           </div>
         </div>
-        
+        <div class="section" id="certs">
+          <h3>Certifications</h3>
+          <div class="cert-item">
+            <b>Diploma In C#</b> <span class="cert-date">Alison – Jan 2022</span>
+          </div>
+          <div class="cert-item">
+            <b>Mastering Computer & Internet Skills</b> <span class="cert-date">Gyaan.Com – Jul 2022</span>
+          </div>
+          <div class="cert-item">
+            <b>HTML</b> <span class="cert-date">Great Learning – Feb 2022</span>
+          </div>
+          <div class="cert-item">
+            <b>Google Analytics</b> <span class="cert-date">Academy – Apr 2022</span>
+          </div>
+        </div>
+      </div>
+      <!-- Right Column: Skills, Education, Extra Curricular, Languages -->
+      <div class="right-col">
+        <div class="section" id="skills">
+          <h3>Skills</h3>
+          <div class="skills-list">
+            <div class="skill">C#<div class="skill-bar"><div class="progress" style="width:96%"></div></div></div>
+            <div class="skill">React TS<div class="skill-bar"><div class="progress" style="width:92%"></div></div></div>
+            <div class="skill">SQL<div class="skill-bar"><div class="progress" style="width:88%"></div></div></div>
+            <div class="skill">Web APIs<div class="skill-bar"><div class="progress" style="width:87%"></div></div></div>
+            <div class="skill">Microsoft Azure<div class="skill-bar"><div class="progress" style="width:83%"></div></div></div>
+            <div class="skill">Blazor<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
+            <div class="skill">Entity Framework Core<div class="skill-bar"><div class="progress" style="width:81%"></div></div></div>
+            <div class="skill">Dapper<div class="skill-bar"><div class="progress" style="width:77%"></div></div></div>
+            <div class="skill">MVC Core<div class="skill-bar"><div class="progress" style="width:85%"></div></div></div>
+            <div class="skill">PostgreSQL<div class="skill-bar"><div class="progress" style="width:70%"></div></div></div>
+            <div class="skill">UI/UX Design<div class="skill-bar"><div class="progress" style="width:78%"></div></div></div>
+            <div class="skill">Testing/Debugging<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
+            <div class="skill">Kendo UI/Telerik<div class="skill-bar"><div class="progress" style="width:72%"></div></div></div>
+            <div class="skill">Javascript<div class="skill-bar"><div class="progress" style="width:86%"></div></div></div>
+          </div>
+        </div>
+        <div class="section" id="education">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <b>KIPM College of Tech & Engg</b> <span class="edu-date">Aug 2020 – Jul 2023</span><br />
+            Bachelor of Technology (CSE), 85%
+          </div>
+          <div class="edu-item">
+            <b>M.P. Polytechnic Gorakhnath</b> <span class="edu-date">Jul 2015 – Jun 2018</span><br />
+            Diploma, 81%
+          </div>
+        </div>
+        <div class="section" id="extra">
+          <h3>Extra Curricular Activities</h3>
+          <ul class="extra-list">
+            <li>Hackerrank mock tests (MS SQL)</li>
+            <li>Chess – 1st prize</li>
+            <li>Kabaddi – college level</li>
+            <li>General aptitude quiz – 3rd prize</li>
+            <li>Debate competition</li>
+            <li>Reading: Books, Novels, Short Stories</li>
+          </ul>
+        </div>
+        <div class="section" id="languages">
+          <h3>Languages</h3>
+          <ul class="lang-list">
+            <li>English</li>
+            <li>Hindi</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="theme-picker" id="themePicker">
@@ -423,4 +468,3 @@
   </script>
 </body>
 </html>
-
