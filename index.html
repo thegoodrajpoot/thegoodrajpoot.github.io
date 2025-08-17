@@ -1,104 +1,296 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Prateek Singh - Resume</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; color: #333; background: #f6f7fb; }
-        .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 32px; box-shadow: 0 2px 8px #aaa; border-radius: 8px; }
-        h1, h2 { color: #2767C3; margin-bottom: 8px; }
-        h1 { font-size: 2.2em; }
-        h2 { border-bottom: 2px solid #eee; padding-bottom: 4px; }
-        .header, .section { margin-bottom: 32px; }
-        .info { font-size: 1.1em; margin-bottom: 4px; }
-        .skills, .languages, .certs, .extra { margin: 0; padding: 0; list-style: none; }
-        .exp { margin-bottom: 16px; }
-        .project { margin-bottom: 16px; }
-        .meta { color: #666; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Prateek Singh – .NET React Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2767C3;
+      --secondary: #fff;
+      --accent: #f2f2f2;
+      --dark-bg: #18191a;
+      --primary-dark: #20b2aa;
+    }
+    body {
+      margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--accent); color: #212121; transition: background 0.4s, color 0.4s;
+    }
+    .container {
+      max-width: 970px; margin: 32px auto 0 auto; background: #fff; box-shadow: 0 8px 48px rgba(0,0,0,0.12); border-radius: 12px;
+      padding: 40px 36px 16px 36px;
+    }
+    nav {
+      background: var(--primary); color: var(--secondary); display: flex; justify-content: space-between; align-items: center;
+      padding: 0 24px; border-radius: 12px 12px 0 0; position: sticky; top: 0; z-index: 10;
+    }
+    nav .nav-title { font-size: 1.3em; font-weight: 500; letter-spacing: 0.02em; }
+    nav ul {
+      display: flex; list-style: none; margin: 0; padding: 0;
+    }
+    nav li {
+      margin: 0 12px;
+    }
+    nav a {
+      color: #fff; text-decoration: none; padding: 16px 4px; display: block; font-size: 1em; font-weight: 400;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #ccc; }
+    #modeToggle { cursor: pointer; font-size: 1.1em; margin-left: 18px;}
+    header { text-align: center; margin-bottom: 34px; }
+    header h1 { margin-bottom: 6px; font-size: 2.2em; color: var(--primary);}
+    header h2 { margin-top: 0; color: #555; font-weight: 400;}
+    .contacts a { color: #212121; text-decoration: none; font-size: 1em; margin: 0 16px; }
+    .contacts a:hover { text-decoration: underline; color: var(--primary); }
+    .about { font-size: 1.07em; margin: 18px 0 34px 0; color: #363d42;}
+    .section { margin-bottom: 38px; }
+    .section h3 { color: var(--primary); font-size: 1.25em; margin-bottom: 8px;}
+    .skills-list { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 14px;}
+    .skill { background: var(--accent); border-radius: 5px; padding: 10px 18px; box-shadow: 0 2px 10px #eee; }
+    .skill-bar {
+      position: relative; height: 12px; background: #ececec; border-radius: 6px;
+      margin:9px 0 4px 0; width: 100px;
+    }
+    .progress {height: 100%; border-radius:6px; background: var(--primary);}
+    .exp-item, .project-card, .edu-item, .cert-item { margin-bottom: 22px;}
+    .exp-title { font-weight: 500;}
+    .exp-date, .proj-date, .edu-date, .cert-date { font-size: 0.97em; color: #888;}
+    .project-cards {
+      display: flex; flex-wrap: wrap; gap: 20px;
+    }
+    .project-card {
+      background: var(--accent); padding: 18px 18px 10px 18px; border-radius: 8px; box-shadow: 0 2px 12px #eee;
+      transition: transform .2s, box-shadow .2s;
+      width: 330px; min-height: 140px; cursor: pointer; position: relative;
+    }
+    .project-card:hover { transform: translateY(-6px) scale(1.013); box-shadow: 0 8px 32px #dde; }
+    .hidden-details { display: none; font-size: 0.96em; margin-top:8px; color: #444; }
+    .download-btn {
+      display:inline-block; padding:9px 16px; border-radius:6px; background: var(--primary); color: #fff;
+      text-decoration:none; font-weight:500; transition: background 0.2s; box-shadow: 0 2px 8px #efefef; margin-bottom: 16px;
+    }
+    .download-btn:hover { background: #18417d; }
+    .lang-list, .extra-list { list-style:none; padding-left:0; margin-bottom:8px;}
+    .lang-list li, .extra-list li { font-size: 1.05em; margin-bottom: 5px; }
+    @media (max-width: 700px) {
+      .container {padding: 20px 4px;}
+      .skills-list, .project-cards { flex-direction: column;}
+      .project-card { width: 95vw;}
+    }
+    body.dark-mode {
+      background: var(--dark-bg); color: #eee;
+    }
+    body.dark-mode .container {background: #222835; box-shadow: 0 8px 48px rgba(18,24,36,0.20);}
+    body.dark-mode nav {background: var(--primary-dark);}
+    body.dark-mode .section h3, body.dark-mode header h1 { color: var(--primary-dark);}
+    body.dark-mode .project-card {background: #29304e; box-shadow: 0 2px 12px rgba(44,64,111,.32);}
+    body.dark-mode .skill {background: #232642; box-shadow: 0 2px 10px #202642;}
+    body.dark-mode .download-btn {background: var(--primary-dark);}
+    body.dark-mode .download-btn:hover {background: #2767C3;}
+  </style>
 </head>
 <body>
+<nav>
+  <div class="nav-title">Prateek Singh</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certs">Certifications</a></li>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#extra">Extracurricular</a></li>
+  </ul>
+  <span id="modeToggle" title="Switch Mode"><i class="fas fa-moon"></i></span>
+</nav>
 <div class="container">
-    <div class="header">
-        <h1>Prateek Singh</h1>
-        <div class="info">.NET REACT DEVELOPER | Noida</div>
-        <div class="info">thegoodrajput@gmail.com | +91 9696959993</div>
-        <p>Results-driven and highly skilled Web Developer with a passion for crafting dynamic and user-friendly web applications using C#. I excel at creating scalable solutions, ensuring high-quality code, and delivering exceptional user experiences.</p>
+  <header>
+    <h1>Prateek Singh</h1>
+    <h2>.NET React Developer</h2>
+    <div class="contacts">
+      <a href="mailto:thegoodrajput@gmail.com"><i class="fas fa-envelope"></i> thegoodrajput@gmail.com</a>
+      <a href="tel:+919696959993"><i class="fas fa-phone"></i> +91 9696959993</a>
+      <a href="#"><i class="fas fa-location-dot"></i> Noida</a>
+      <!-- Add LinkedIn/GitHub if desired -->
     </div>
-    <div class="section">
-        <h2>Skills</h2>
-        <ul class="skills">
-            <li>C# | React TS | SQL | Web APIs | Microsoft Azure | Entity Framework Core | Dapper | Blazor | MVC Core | MVC with .NET Framework | Web Forms | PostgreSQL | Razor pages | Testing/debugging | Kendo UI & Telerik | Javascript | Problem Solving | MongoDB | Microsoft Bot framework | UX/UI design | MAUI | Mudblazor</li>
-        </ul>
+    <a href="Prateek_Resume_3yrs.pdf" class="download-btn" download>
+      <i class="fas fa-file-arrow-down"></i> Download Resume PDF
+    </a>
+    <div class="about section" id="about">
+      Results-driven and highly skilled Web Developer with a passion for crafting dynamic and user-friendly web applications using C#. Proficient in utilizing the latest web technologies and frameworks, I excel at creating efficient, scalable solutions and delivering exceptional user experiences. Dedicated to high-quality code, cross-browser compatibility, and responsive design.
     </div>
-    <div class="section">
-        <h2>Experience (3+ Years)</h2>
-        <div class="exp"><b>Bhavna Corp</b> <span class="meta">Jan 2025 - Present</span><br>
-            Dotnet Developer. Built and maintained React+Redux web apps, backends in .NET & SQL. Led development, deployment, and optimization of scalable solutions.
-        </div>
-        <div class="exp"><b>LP Infotech</b> <span class="meta">Sep 2023 - Jan 2025</span><br>
-            Dotnet Developer. Developed .NET Core backend, MVC/Razor/Blazor frontends, REST APIs, and optimized data access using EF Core and Dapper.
-        </div>
-        <div class="exp"><b>Pro Innovative Software</b> <span class="meta">Jul 2022 - Aug 2023</span><br>
-            Junior Asp.Net Web Developer. Developed and maintained ASP.NET web apps, integrated databases, used debugging tools to resolve issues.
-        </div>
+  </header>
+
+  <div class="section" id="skills">
+    <h3>Skills</h3>
+    <div class="skills-list">
+      <div class="skill">C#<div class="skill-bar"><div class="progress" style="width:96%"></div></div></div>
+      <div class="skill">React TS<div class="skill-bar"><div class="progress" style="width:92%"></div></div></div>
+      <div class="skill">SQL<div class="skill-bar"><div class="progress" style="width:88%"></div></div></div>
+      <div class="skill">Web APIs<div class="skill-bar"><div class="progress" style="width:87%"></div></div></div>
+      <div class="skill">Microsoft Azure<div class="skill-bar"><div class="progress" style="width:83%"></div></div></div>
+      <div class="skill">Blazor<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
+      <div class="skill">Entity Framework Core<div class="skill-bar"><div class="progress" style="width:81%"></div></div></div>
+      <div class="skill">Dapper<div class="skill-bar"><div class="progress" style="width:77%"></div></div></div>
+      <div class="skill">Payment Integrations<div class="skill-bar"><div class="progress" style="width:75%"></div></div></div>
+      <div class="skill">MVC Core<div class="skill-bar"><div class="progress" style="width:85%"></div></div></div>
+      <div class="skill">PostgreSQL<div class="skill-bar"><div class="progress" style="width:70%"></div></div></div>
+      <div class="skill">UI/UX Design<div class="skill-bar"><div class="progress" style="width:78%"></div></div></div>
+      <div class="skill">Testing/Debugging<div class="skill-bar"><div class="progress" style="width:80%"></div></div></div>
+      <div class="skill">Kendo UI/Telerik<div class="skill-bar"><div class="progress" style="width:72%"></div></div></div>
+      <div class="skill">Javascript<div class="skill-bar"><div class="progress" style="width:86%"></div></div></div>
+      <!-- Add more skills as needed -->
     </div>
-    <div class="section">
-        <h2>Projects</h2>
-        <div class="project"><b>Meridians Links</b> <span class="meta">Feb 2025 - Present</span><br>
-            Migrating legacy ASPX app to modern React/TS; refactoring into reusable typed components.
-        </div>
-        <div class="project"><b>EHR Project</b> <span class="meta">Aug 2024 - Jan 2025</span><br>
-            Web-based EHR system with role-based access, encryption, and secure real-time updates.
-        </div>
-        <div class="project"><b>Image Merger App</b> <span class="meta">Apr 2024 - May 2024</span><br>
-            Blazor app for merging images, watermark customization, and export to PNG/JPEG.
-        </div>
-        <div class="project"><b>Stripe API Integration</b> <span class="meta">Jun 2024</span><br>
-            Secure Stripe ACH payments with CAPTCHA and anti-CSRF, real-time updates.
-        </div>
-        <div class="project"><b>HRMS Payroll</b> <span class="meta">Jul 2022 - Jun 2023</span><br>
-            HRMS solution: onboarding, attendance, leave, performance, payroll management.
-        </div>
+  </div>
+
+  <div class="section" id="experience">
+    <h3>Experience (3+ Years)</h3>
+    <div class="exp-item">
+      <span class="exp-title">Dotnet Developer, Bhavna Corp</span>
+      <span class="exp-date">Jan 2025 – Present</span>
+      <div>
+        Modern web apps using React/Redux, .NET backends & SQL DBs; Atlassian for efficient dev/deployment; optimized performance and cross-team collaboration.
+      </div>
     </div>
-    <div class="section">
-        <h2>Education</h2>
-        <div><b>KIPM College of Technology & Engineering</b> <span class="meta">Aug 2020 - Jul 2023</span><br>
-            Bachelor of Technology (CSE) – 85%
+    <div class="exp-item">
+      <span class="exp-title">Dotnet Developer, LP Infotech</span>
+      <span class="exp-date">Sep 2023 – Jan 2025</span>
+      <div>
+        Extensive .NET dev with MVC, Razor, Blazor; RESTful APIs; backend data management with EF Core/Dapper; ORM integrations for data handling.
+      </div>
+    </div>
+    <div class="exp-item">
+      <span class="exp-title">Junior Asp.Net Web Developer, Pro Innovative Software</span>
+      <span class="exp-date">Jul 2022 – Aug 2023</span>
+      <div>
+        Maintained ASP.NET web apps, integrated DBs with ADO.NET; debugging and issue resolution.
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="projects">
+    <h3>Key Projects</h3>
+    <div class="project-cards">
+      <div class="project-card" onclick="toggleDetails('proj1')">
+        <b>Meridians Links</b>
+        <div class="proj-date">Feb 2025 – Present</div>
+        <div>Migrating legacy ASPX to React/TS, reusable typed components.</div>
+        <div class="hidden-details" id="proj1">
+          Enhanced scalability, maintainability, major refactoring and teamwork in migration journey.
         </div>
-        <div><b>M.P. Polytechnic Gorakhnath Gorakhpur</b> <span class="meta">Jul 2015 - Jun 2018</span><br>
-            Diploma – 81%
+      </div>
+      <div class="project-card" onclick="toggleDetails('proj2')">
+        <b>EHR (Electronic Health Record) System</b>
+        <div class="proj-date">Aug 2024 – Jan 2025</div>
+        <div>Web EHR: Real-time management, secure role-based access, encryption.</div>
+        <div class="hidden-details" id="proj2">
+          Built on .NET MVC, secure CRUD operations, Dapper/SQL for DB, RBAC security.
         </div>
+      </div>
+      <div class="project-card" onclick="toggleDetails('proj3')">
+        <b>Image Merger App</b>
+        <div class="proj-date">Apr 2024 – May 2024</div>
+        <div>Blazor app, merge images/watermarks, export as PNG/JPEG.</div>
+        <div class="hidden-details" id="proj3">
+          Used MudBlazor, clean architecture, XML manipulation, Puppeteer, custom controls.
+        </div>
+      </div>
+      <div class="project-card" onclick="toggleDetails('proj4')">
+        <b>Stripe API Integration</b>
+        <div class="proj-date">Jun 2024</div>
+        <div>Secure ACH, CAPTCHA, anti-CSRF; real-time webhooks.</div>
+        <div class="hidden-details" id="proj4">
+          Robust payment processing, fraud prevention and seamless financial UI.
+        </div>
+      </div>
+      <div class="project-card" onclick="toggleDetails('proj5')">
+        <b>HRMS Payroll Web App</b>
+        <div class="proj-date">Jul 2022 – Jun 2023</div>
+        <div>Employee onboarding, attendance, leave, payroll management.</div>
+        <div class="hidden-details" id="proj5">
+          Deep domain expertise, cross-team collaboration, automated workflows.
+        </div>
+      </div>
     </div>
-    <div class="section">
-        <h2>Certifications</h2>
-        <ul class="certs">
-            <li>Diploma In C# (Alison, Jan 2022)</li>
-            <li>Mastering Computer and Internet Skills (Gyaan.Com, Jul 2022)</li>
-            <li>HTML (Great Learning, Feb 2022)</li>
-            <li>Google Analytics (Google Analytics Academy, Apr 2022)</li>
-        </ul>
+  </div>
+
+  <div class="section" id="education">
+    <h3>Education</h3>
+    <div class="edu-item">
+      <b>KIPM College of Tech & Engg</b> <span class="edu-date">Aug 2020 – Jul 2023</span><br>
+      Bachelor of Technology (CSE), 85%
     </div>
-    <div class="section">
-        <h2>Languages</h2>
-        <ul class="languages">
-            <li>English</li>
-            <li>Hindi</li>
-        </ul>
+    <div class="edu-item">
+      <b>M.P. Polytechnic Gorakhnath</b> <span class="edu-date">Jul 2015 – Jun 2018</span><br>
+      Diploma, 81%
     </div>
-    <div class="section">
-        <h2>Extra Curricular Activities</h2>
-        <ul class="extra">
-            <li>Hackerrank mock tests (MS SQL)</li>
-            <li>Chess – 1st prize</li>
-            <li>Kabaddi – college level</li>
-            <li>General aptitude quiz – won 3rd prize</li>
-            <li>Debate competition</li>
-            <li>Reading: Books, Novels, Short Stories</li>
-        </ul>
+  </div>
+
+  <div class="section" id="certs">
+    <h3>Certifications</h3>
+    <div class="cert-item">
+      <b>Diploma In C#</b> <span class="cert-date">Alison – Jan 2022</span>
     </div>
+    <div class="cert-item">
+      <b>Mastering Computer & Internet Skills</b> <span class="cert-date">Gyaan.Com – Jul 2022</span>
+    </div>
+    <div class="cert-item">
+      <b>HTML</b> <span class="cert-date">Great Learning – Feb 2022</span>
+    </div>
+    <div class="cert-item">
+      <b>Google Analytics</b> <span class="cert-date">Academy – Apr 2022</span>
+    </div>
+  </div>
+
+  <div class="section" id="languages">
+    <h3>Languages</h3>
+    <ul class="lang-list">
+      <li>English</li>
+      <li>Hindi</li>
+    </ul>
+  </div>
+  <div class="section" id="extra">
+    <h3>Extra Curricular Activities</h3>
+    <ul class="extra-list">
+      <li>Hackerrank mock tests (MS SQL)</li>
+      <li>Chess – 1st prize</li>
+      <li>Kabaddi – college level</li>
+      <li>General aptitude quiz – 3rd prize</li>
+      <li>Debate competition</li>
+      <li>Reading: Books, Novels, Short Stories</li>
+    </ul>
+  </div>
 </div>
+<script>
+  // Light/Dark mode toggle
+  const modeToggle = document.getElementById('modeToggle');
+  modeToggle.onclick = function() {
+    document.body.classList.toggle('dark-mode');
+    modeToggle.innerHTML = document.body.classList.contains('dark-mode') ?
+      `<i class="fas fa-sun"></i>` : `<i class="fas fa-moon"></i>`;
+  };
+  // Animated show/hide details for project cards
+  function toggleDetails(id) {
+    const el = document.getElementById(id);
+    if(el) {
+      el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    }
+  }
+  // Smooth scrolling for nav
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = anchor.getAttribute('href');
+      if(href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target) {
+          target.scrollIntoView({behavior: 'smooth'});
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
