@@ -1,94 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Prateek Singh – .NET React Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <style>
     :root {
-      --primary: #2767C3;
+      --primary: #935faf;
       --secondary: #fff;
       --accent: #f7f9fa;
       --dark-bg: #18191a;
       --primary-dark: #20b2aa;
       --sidebar-width: 190px;
+      --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
     }
     body {
-      margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: var(--accent); color: #232835; transition: background 0.4s, color 0.4s;
+      margin: 0;
+      font-family: var(--font-main);
+      background: var(--accent);
+      color: #232835;
+      transition: background 0.4s, color 0.4s;
       display: flex;
     }
     .sidebar {
-      position: fixed; left: 0; top: 0; height: 100vh; width: var(--sidebar-width); background: var(--primary); color: var(--secondary);
-      display: flex; flex-direction: column; align-items: center; z-index: 11; box-shadow: 0 4px 18px #101B34;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background: var(--primary);
+      color: var(--secondary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 11;
+      box-shadow: 0 4px 18px #101b34;
     }
     .sidebar .nav-title {
-      font-size: 1.23em; font-weight: 600; letter-spacing: 0.02em; margin: 24px 0 18px 0; text-align: center;
+      font-size: 1.25em;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 24px 0 18px 0;
+      text-align: center;
     }
     .sidebar ul { list-style: none; padding: 0; margin: 0; width: 100%; }
     .sidebar li { width: 100%; }
     .sidebar a {
-      color: #fff; text-decoration: none; display: block; padding: 13px 22px; font-size: 1em; text-align: left;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      padding: 13px 22px;
+      font-size: 1em;
+      text-align: left;
       transition: background .18s, color .2s; border-left: 4px solid transparent;
+      font-weight: 500;
+      font-family: var(--font-main);
     }
     .sidebar a:hover, .sidebar a.active {
-      background: #205597; color: #fffd; border-left: 4px solid #fff;
+      background: #7d469f;
+      color: #fffd;
+      border-left: 4px solid #fff;
     }
     .sidebar .icon { margin-right: 9px; }
     .sidebar-bottom { margin-top: auto; margin-bottom: 18px; }
     .container {
-      margin-left: var(--sidebar-width); width: calc(100vw - var(--sidebar-width)); min-height: 100vh;
-      background: #fff; box-shadow: 0 3px 16px #daf0fb12; border-radius: 0 20px 20px 0; padding: 0 0 30px 0; position: relative;
-      display: flex; flex-direction: column;
+      margin-left: var(--sidebar-width);
+      width: calc(100vw - var(--sidebar-width));
+      min-height: 100vh;
+      background: #fff;
+      box-shadow: 0 3px 16px #daf0fb12;
+      border-radius: 0 20px 20px 0;
+      padding: 0 0 30px 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
     .download-btn {
-      position: absolute; top: 20px; right: 32px; z-index: 100; display:inline-block; padding:10px 21px; border-radius:6px;
-      background: var(--primary); color: #fff; font-weight:500; font-size:1.04em;
-      text-decoration:none; box-shadow:0 2px 10px #efefef;
-      transition: background 0.2s; border: 0;
+      position: absolute;
+      top: 20px;
+      right: 32px;
+      z-index: 100;
+      display: inline-block;
+      padding: 10px 21px;
+      border-radius: 6px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.04em;
+      text-decoration: none;
+      box-shadow: 0 2px 10px #efefef;
+      transition: background 0.2s;
+      border: 0;
+      letter-spacing: 0.01em;
     }
-    .download-btn:hover { background: #18417d; }
+    .download-btn:hover { background: #7d469f; }
     header {
-      display: flex; flex-direction: row; align-items: center; padding: 44px 54px 22px 54px;
-      border-radius: 0 0 0 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 44px 54px 22px 54px;
       gap: 16px;
     }
     header .info-block { flex: 1; }
-    header h1 { font-size: 2em; color: var(--primary); margin-bottom: 5px;}
-    header h2 { font-size: 1.15em; margin-top: 0; color: #555; font-weight: 400;}
+    header h1 { font-size: 2em; color: var(--primary); margin-bottom: 5px; font-weight: 700; letter-spacing: 0.01em;}
+    header h2 { font-size: 1.08em; margin-top: 0; color: #555; font-weight: 600;}
     header .contacts { margin-top: 10px;}
-    .contacts a { color: #232835; text-decoration: none; font-size: 1em; margin: 0 12px 0 0;}
+    .contacts a { color: #232835; text-decoration: none; font-size: 1em; margin: 0 12px 0 0; font-weight: 500;}
     .contacts a:hover { text-decoration: underline; color: var(--primary);}
     .main-content {
-      display: flex; flex-direction: row; gap: 40px; justify-content: stretch;
-      padding: 0 54px; margin-top: 12px; min-height: 420px;
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: stretch;
+      padding: 0 54px;
+      margin-top: 12px;
+      min-height: 420px;
     }
     .left-col, .right-col { flex: 1 0 0; }
     .section { margin-bottom: 34px; }
-    .section h3 { color: var(--primary); font-size: 1.15em; margin-bottom: 9px;}
-    .skills-list { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 10px;}
-    .skill { background: var(--accent); border-radius: 5px; padding: 6px 14px; box-shadow: 0 2px 8px #eee; margin-bottom: 7px;}
+    .section h3 { color: var(--primary); font-size: 1.16em; margin-bottom: 9px; font-weight: 700;}
+    .skills-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px;}
+    .skill { background: var(--accent); border-radius: 5px; padding: 6px 14px; box-shadow: 0 2px 8px #eee; margin-bottom: 7px; font-weight: 500;}
     .skill-bar {
       position: relative; height: 8px; background: #ececec; border-radius: 6px; margin:5px 0; width: 84px;
     }
     .progress {height:100%; border-radius:6px; background:var(--primary);}
-    .project-cards { display: flex; flex-direction: column; gap: 15px;}
-    .project-card { background: var(--accent); padding:11px 13px 7px 13px; border-radius:7px; box-shadow: 0 2px 8px #eee;
-      transition: transform .18s, box-shadow .18s; cursor:pointer; position:relative; }
-    .project-card:hover { transform: translateY(-3px) scale(1.016); box-shadow: 0 4px 22px #dde;}
-    .hidden-details { display: none; font-size: 0.95em; margin-top:6px; color: #444;}
+    .project-cards { display: flex; flex-direction: column; gap: 19px;}
+    .project-card {
+      background: var(--accent); padding:14px 17px 10px 17px; border-radius:7px; box-shadow: 0 2px 8px #eee;
+      transition: transform .18s, box-shadow .17s; position:relative;
+    }
+    .project-title { font-weight: 600; font-size: 1.09em; color: var(--primary); margin-bottom: 5px; }
+    .proj-date { font-size: .97em; color: #888; margin-bottom: 2px;}
+    .project-desc ul { margin:7px 0 0 21px; padding-left: 0;}
+    .project-desc li { margin-bottom: 4px; font-size: 1em;}
     .exp-item, .edu-item, .cert-item { margin-bottom: 19px;}
-    .exp-title { font-weight: 500;}
-    .exp-date, .proj-date, .edu-date, .cert-date { font-size:0.97em; color: #888;}
+    .exp-title { font-weight: 600;}
+    .exp-date, .edu-date, .cert-date { font-size: .97em; color: #888;}
     .lang-list, .extra-list { list-style:none; padding-left:0; margin-bottom:8px;}
-    .lang-list li, .extra-list li { font-size: 1.01em; margin-bottom: 4px;}
-    .about.section {font-size: 1.08em; margin: 12px 0 0 0;}
+    .lang-list li, .extra-list li { font-size: 1.02em; margin-bottom: 4px; font-weight: 500;}
+    .about.section {font-size: 1.08em; margin: 12px 0 0 0; font-weight: 400;}
     /* Theme Picker styles */
     .theme-picker {
-      position: fixed; bottom: 22px; right: 28px; z-index: 999;
-      background: #fff; border: 1px solid #eee; border-radius: 16px;
-      padding: 12px 16px 9px 16px; box-shadow: 0 2px 24px #dde;
-      display: flex; flex-direction: column; align-items: flex-start;
+      position: fixed;
+      bottom: 22px;
+      right: 28px;
+      z-index: 999;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      padding: 12px 16px 9px 16px;
+      box-shadow: 0 2px 24px #dde;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
     .theme-picker label {font-size: .98em; margin-bottom: 6px; color: #444;}
     .color-row {display: flex; gap: 12px; margin-bottom: 5px;}
@@ -114,7 +181,7 @@
     body.dark-mode .project-card {background: #2d3551; box-shadow: 0 3px 13px #253048;}
     body.dark-mode .skill {background: #232642; box-shadow: 0 1px 8px #1c2235;}
     body.dark-mode .download-btn {background: var(--primary-dark);}
-    body.dark-mode .download-btn:hover {background: #2767C3;}
+    body.dark-mode .download-btn:hover {background: #935faf;}
     body.dark-mode .theme-picker {background: #232642; color: #eee; border: 1px solid #444;}
     body.dark-mode .color-choice {border: 2px solid #555;}
   </style>
@@ -175,6 +242,17 @@
             <div class="skill">Javascript<div class="skill-bar"><div class="progress" style="width:86%"></div></div></div>
           </div>
         </div>
+        <div class="section" id="education">
+          <h3>Education</h3>
+          <div class="edu-item">
+            <b>KIPM College of Tech & Engg</b> <span class="edu-date">Aug 2020 – Jul 2023</span><br />
+            Bachelor of Technology (CSE), 85%
+          </div>
+          <div class="edu-item">
+            <b>M.P. Polytechnic Gorakhnath</b> <span class="edu-date">Jul 2015 – Jun 2018</span><br />
+            Diploma, 81%
+          </div>
+        </div>
         <div class="section" id="languages">
           <h3>Languages</h3>
           <ul class="lang-list">
@@ -214,65 +292,59 @@
           <div class="exp-item">
             <span class="exp-title">Junior Asp.Net Web Developer, Pro Innovative Software</span>
             <span class="exp-date">Jul 2022 – Aug 2023</span>
-            <div>
-              Maintained ASP.NET web apps, integrated DBs with ADO.NET; debugging and issue resolution.
-            </div>
+            <div>Maintained ASP.NET web apps, integrated DBs with ADO.NET; debugging and issue resolution.</div>
           </div>
         </div>
         <div class="section" id="projects">
           <h3>Key Projects</h3>
           <div class="project-cards">
-            <div class="project-card" onclick="toggleDetails('proj1')">
-              <b>Meridians Links</b>
-              <div class="proj-date">Feb 2025 – Present</div>
-              <div>Migrating legacy ASPX to React/TS, reusable typed components.</div>
-              <div class="hidden-details" id="proj1">
-                Enhanced scalability, maintainability, major refactoring and teamwork in migration journey.
+            <div class="project-card">
+              <div class="project-title">Meridians Links <span class="proj-date">Feb 2025 – Present</span></div>
+              <div class="project-desc">
+                <ul>
+                  <li>Contributed as a team member to large-scale migration of legacy ASPX web application to modern React and TypeScript front-end.</li>
+                  <li>Involved in reengineering legacy ASPX forms and components into reusable, strongly typed React elements to improve maintainability and scalability.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-card" onclick="toggleDetails('proj2')">
-              <b>EHR (Electronic Health Record) System</b>
-              <div class="proj-date">Aug 2024 – Jan 2025</div>
-              <div>Web EHR: Real-time management, secure role-based access, encryption.</div>
-              <div class="hidden-details" id="proj2">
-                Built on .NET MVC, secure CRUD operations, Dapper/SQL for DB, RBAC security.
+            <div class="project-card">
+              <div class="project-title">EHR (Electronic Health Record) Project <span class="proj-date">Aug 2024 – Jan 2025</span></div>
+              <div class="project-desc">
+                <ul>
+                  <li>Developed a web-based EHR system to streamline management of patient health records, appointment scheduling, and secure access for healthcare providers.</li>
+                  <li>Implemented .NET MVC backend, real-time data retrieval and updates, role-based access control (RBAC) and encryption.</li>
+                  <li>Utilized Dapper and SQL Server for efficient and accurate database operations.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-card" onclick="toggleDetails('proj3')">
-              <b>Image Merger App</b>
-              <div class="proj-date">Apr 2024 – May 2024</div>
-              <div>Blazor app, merge images/watermarks, export as PNG/JPEG.</div>
-              <div class="hidden-details" id="proj3">
-                Used MudBlazor, clean architecture, XML manipulation, Puppeteer, custom controls.
+            <div class="project-card">
+              <div class="project-title">Image Merger (Dotnet-8 Blazor, Clean Architecture) <span class="proj-date">Apr 2024 – May 2024</span></div>
+              <div class="project-desc">
+                <ul>
+                  <li>Developed Blazor-based web app using MudBlazor and Clean Architecture on .NET 8 to merge images with various customizations.</li>
+                  <li>Implemented zooming, position adjustment, opacity control for watermarks, and export to PNG/JPEG formats.</li>
+                  <li>Used XML manipulation and Puppeteer headless browser for PNG conversion.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-card" onclick="toggleDetails('proj4')">
-              <b>Stripe API Integration</b>
-              <div class="proj-date">Jun 2024</div>
-              <div>Secure ACH, CAPTCHA, anti-CSRF; real-time webhooks.</div>
-              <div class="hidden-details" id="proj4">
-                Robust payment processing, fraud prevention and seamless financial UI.
+            <div class="project-card">
+              <div class="project-title">Stripe API Integration <span class="proj-date">Jun 2024</span></div>
+              <div class="project-desc">
+                <ul>
+                  <li>Developed secure Stripe API integration for ACH payments, including Google CAPTCHA and antiforgery tokens for security.</li>
+                  <li>Implemented payment processing, account validation, webhook handling for real-time financial updates.</li>
+                  <li>Enhanced security against CSRF attacks, providing robust user experience.</li>
+                </ul>
               </div>
             </div>
-            <div class="project-card" onclick="toggleDetails('proj5')">
-              <b>HRMS Payroll Web App</b>
-              <div class="proj-date">Jul 2022 – Jun 2023</div>
-              <div>Employee onboarding, attendance, leave, payroll management.</div>
-              <div class="hidden-details" id="proj5">
-                Deep domain expertise, cross-team collaboration, automated workflows.
+            <div class="project-card">
+              <div class="project-title">HRMS Payroll <span class="proj-date">Jul 2022 – Jun 2023</span></div>
+              <div class="project-desc">
+                <ul>
+                  <li>Developed comprehensive HRMS web app covering onboarding, attendance, leave tracking, performance evaluation, and payroll management.</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="section" id="education">
-          <h3>Education</h3>
-          <div class="edu-item">
-            <b>KIPM College of Tech & Engg</b> <span class="edu-date">Aug 2020 – Jul 2023</span><br>
-            Bachelor of Technology (CSE), 85%
-          </div>
-          <div class="edu-item">
-            <b>M.P. Polytechnic Gorakhnath</b> <span class="edu-date">Jul 2015 – Jun 2018</span><br>
-            Diploma, 81%
           </div>
         </div>
         <div class="section" id="certs">
@@ -295,55 +367,58 @@
     <div class="theme-picker" id="themePicker">
       <label>Theme Color</label>
       <div class="color-row">
-        <div class="color-choice" style="background:#2767C3;" data-color="#2767C3"></div>
-        <div class="color-choice" style="background:#20b2aa;" data-color="#20b2aa"></div>
-        <div class="color-choice" style="background:#e63946;" data-color="#e63946"></div>
-        <div class="color-choice" style="background:#efb810;" data-color="#efb810"></div>
-        <div class="color-choice" style="background:#935faf;" data-color="#935faf"></div>
-        <div class="color-choice" style="background:#374151;" data-color="#374151"></div>
+        <div class="color-choice" style="background:#2767c3" data-color="#2767c3"></div>
+        <div class="color-choice" style="background:#20b2aa" data-color="#20b2aa"></div>
+        <div class="color-choice" style="background:#e63946" data-color="#e63946"></div>
+        <div class="color-choice" style="background:#efb810" data-color="#efb810"></div>
+        <div class="color-choice selected" style="background:#935faf" data-color="#935faf"></div>
+        <div class="color-choice" style="background:#374151" data-color="#374151"></div>
       </div>
     </div>
   </div>
-<script>
-  // Light/Dark mode toggle
-  const modeToggle = document.getElementById('modeToggle');
-  modeToggle.onclick = function() {
-    document.body.classList.toggle('dark-mode');
-    modeToggle.innerHTML = document.body.classList.contains('dark-mode') ?
-      `<i class="fas fa-sun"></i>` : `<i class="fas fa-moon"></i>`;
-  };
-  // Animated show/hide details for project cards
-  function toggleDetails(id) {
-    const el = document.getElementById(id);
-    if(el) {
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
-    }
-  }
-  // Smooth scrolling for nav
-  document.querySelectorAll('.sidebar a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = anchor.getAttribute('href');
-      if(href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if(target) {
-          target.scrollIntoView({behavior: 'smooth'});
+  <script>
+    // Light/Dark mode toggle
+    const modeToggle = document.getElementById("modeToggle");
+    modeToggle.onclick = function () {
+      document.body.classList.toggle("dark-mode");
+      modeToggle.innerHTML = document.body.classList.contains("dark-mode")
+        ? `<i class="fas fa-sun"></i>`
+        : `<i class="fas fa-moon"></i>`;
+    };
+    // Smooth scrolling for nav
+    document.querySelectorAll(".sidebar a").forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const href = anchor.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
         }
+      });
+    });
+    // Theme picker logic
+    const choices = document.querySelectorAll(".color-choice");
+    choices.forEach((choice) => {
+      choice.addEventListener("click", function () {
+        let color = choice.getAttribute("data-color");
+        document.documentElement.style.setProperty("--primary", color);
+        choices.forEach((c) => c.classList.remove("selected"));
+        choice.classList.add("selected");
+      });
+    });
+    // Set default theme to #935faf on load
+    window.onload = function () {
+      document.documentElement.style.setProperty("--primary", "#935faf");
+      choices.forEach((c) => c.classList.remove("selected"));
+      const defaultChoice = Array.from(choices).find(
+        (c) => c.getAttribute("data-color") === "#935faf"
+      );
+      if (defaultChoice) {
+        defaultChoice.classList.add("selected");
       }
-    });
-  });
-  // Theme picker logic
-  const choices = document.querySelectorAll('.color-choice');
-  choices.forEach(choice => {
-    choice.addEventListener('click', function() {
-      let color = choice.getAttribute('data-color');
-      document.documentElement.style.setProperty('--primary', color);
-      choices.forEach(c => c.classList.remove('selected'));
-      choice.classList.add('selected');
-    });
-  });
-  // Highlight selected theme on load
-  choices[0].classList.add('selected');
-</script>
+    };
+  </script>
 </body>
 </html>
